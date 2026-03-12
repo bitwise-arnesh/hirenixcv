@@ -1,32 +1,46 @@
 import FeatureCard from "./FeatureCard";
 
-export default function Features() {
-  return (
-    <section className="px-8 py-24 bg-gray-50">
+const features = [
+  {
+    title: "ATS Resume Analysis",
+    desc: "Analyze your resume against Applicant Tracking Systems and improve your score."
+  },
+  {
+    title: "Resume Optimization",
+    desc: "Get AI-powered suggestions to improve your resume for specific job roles."
+  },
+  {
+    title: "Job Description Matching",
+    desc: "Compare your resume with job descriptions and see compatibility score."
+  },
+  {
+    title: "Resume Q&A",
+    desc: "Ask questions about your resume and get AI-powered answers."
+  },
+  {
+    title: "Interview Preparation",
+    desc: "Practice interview questions and receive feedback."
+  }
+];
 
-      <h2 className="text-3xl font-bold text-center mb-12">
+function Features() {
+  return (
+    <section className="py-16 bg-gray-100">
+      <h2 className="text-3xl font-bold text-center mb-10">
         Powerful Features
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-
-        <FeatureCard
-          title="ATS Resume Analysis"
-          description="Analyze your resume against Applicant Tracking Systems and improve your score."
-        />
-
-        <FeatureCard
-          title="Resume Optimization"
-          description="Get AI-powered suggestions to improve your resume for specific job roles."
-        />
-
-        <FeatureCard
-          title="Interview Preparation"
-          description="Practice interview questions and get feedback to boost your confidence."
-        />
-
+      <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-6">
+        {features.map((feature, index) => (
+          <FeatureCard
+            key={index}
+            title={feature.title}
+            desc={feature.desc}
+          />
+        ))}
       </div>
-
     </section>
   );
 }
+
+export default Features;
