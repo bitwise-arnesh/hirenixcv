@@ -1,17 +1,17 @@
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import ResumeUpload from "../components/ResumeUpload";
-import Features from "../components/Features";
-import ATSPreview from "../components/ATSPreview";
+import Hero from "../components/Hero"
+import ResumeUpload from "../components/ResumeUpload"
+import Features from "../components/Features"
+import ATSPreview from "../components/ATSPreview"
 
-export default function Home() {
+function Home() {
   return (
-    <div>
-      <Navbar />
+    <div className="max-w-7xl mx-auto px-6">
       <Hero />
       <ResumeUpload />
       <Features />
       <ATSPreview />
     </div>
-  );
+  )
 }
+
+export default Home
