@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
 
@@ -16,21 +17,27 @@ export default function Navbar() {
     <nav className="flex items-center justify-between px-8 py-4 bg-white dark:bg-gray-900 shadow-md">
 
       {/* Logo */}
-      <h1 className="text-2xl font-bold text-blue-600">
+      <Link to="/" className="text-2xl font-bold text-blue-600">
         HirenixCV
-      </h1>
+      </Link>
 
       {/* Navigation Links */}
       <div className="space-x-6">
-        <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-blue-600">
-          Features
-        </a>
-        <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-blue-600">
+        <Link to="/" className="text-gray-700 dark:text-gray-300 hover:text-blue-600">
+          Home
+        </Link>
+
+        <Link to="/dashboard" className="text-gray-700 dark:text-gray-300 hover:text-blue-600">
           Dashboard
-        </a>
-        <a href="#" className="text-gray-700 dark:text-gray-300 hover:text-blue-600">
+        </Link>
+
+        <Link to="/resume-qa" className="text-gray-700 dark:text-gray-300 hover:text-blue-600">
+          Resume Q&A
+        </Link>
+
+        <Link to="/interview-prep" className="text-gray-700 dark:text-gray-300 hover:text-blue-600">
           Interview Prep
-        </a>
+        </Link>
       </div>
 
       <div className="flex items-center gap-4">
@@ -44,9 +51,12 @@ export default function Navbar() {
         </button>
 
         {/* Get Started */}
-        <button className="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+        <Link
+          to="/dashboard"
+          className="px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700"
+        >
           Get Started
-        </button>
+        </Link>
 
       </div>
 
