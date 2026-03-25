@@ -1,5 +1,26 @@
-server/.env
+# ======================
+# Backend (Python)
+# ======================
 server/venv/
+server/.env
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+
+# ======================
+# Frontend (React/Vite)
+# ======================
+client/node_modules/
+client/dist/
+
+# ======================
+# Uploads (temp files)
+# ======================
 uploads/*
+server/uploads/*
+
+# ======================
+# Env (extra safety)
+# ======================
+.env
