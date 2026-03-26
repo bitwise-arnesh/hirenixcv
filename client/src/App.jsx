@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
 
@@ -9,8 +9,7 @@ import InterviewPrep from "./pages/InterviewPrep";
 
 function App() {
   return (
-    <BrowserRouter>
-
+    <>
       <Navbar />
 
       <Routes>
@@ -19,8 +18,7 @@ function App() {
         <Route path="/resume-qa" element={<ResumeQA />} />
         <Route path="/interview-prep" element={<InterviewPrep />} />
       </Routes>
-
-    </BrowserRouter>
+    </>
   );
 }
 
