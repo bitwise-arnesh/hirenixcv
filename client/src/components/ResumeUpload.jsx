@@ -1,20 +1,21 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ResumeUpload() {
   const [file, setFile] = useState(null);
   const [score, setScore] = useState(null);
   const [feedback, setFeedback] = useState(null);
+  const [ragStatus, setRagStatus] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
-    console.log("File selected:", selectedFile);
     setFile(selectedFile);
   };
 
   const handleUpload = async () => {
-    console.log("Upload button clicked");
-
     if (!file) {
       alert("Please select a file");
       return;
@@ -31,13 +32,11 @@ function ResumeUpload() {
         body: formData,
       });
 
-      console.log("Response status:", response.status);
-
       const data = await response.json();
-      console.log("Response data:", data);
 
       setScore(data.score);
       setFeedback(data.feedback);
+      setRagStatus(data.rag_status);
 
     } catch (error) {
       console.error("Error uploading file:", error);
@@ -69,7 +68,6 @@ function ResumeUpload() {
             or
           </p>
 
-          {/* Hidden input */}
           <input
             type="file"
             onChange={handleFileChange}
@@ -77,7 +75,6 @@ function ResumeUpload() {
             id="fileInput"
           />
 
-          {/* Choose file button */}
           <button
             type="button"
             onClick={() => document.getElementById("fileInput").click()}
@@ -86,14 +83,12 @@ function ResumeUpload() {
             Choose File
           </button>
 
-          {/* Show selected file */}
           {file && (
             <p className="mt-4 text-sm text-gray-600 dark:text-gray-300">
               Selected: {file.name}
             </p>
           )}
 
-          {/* Upload button */}
           {file && (
             <button
               type="button"
@@ -104,22 +99,38 @@ function ResumeUpload() {
             </button>
           )}
 
-          {/* Show score */}
+          {/* ATS Score */}
           {score !== null && (
             <div className="mt-8 text-xl font-bold text-blue-600">
               ATS Score: {score}
             </div>
           )}
 
-          {/* Show feedback */}
+          {/* Feedback */}
           {feedback && (
             <div className="mt-4 text-lg text-gray-700 dark:text-gray-300">
               {feedback}
             </div>
           )}
 
-        </div>
+          {/* RAG Status */}
+          {ragStatus && (
+            <div className="mt-4 text-green-600 font-medium">
+              {ragStatus}
+            </div>
+          )}
 
+          {/* 👉 Go to Q&A Button */}
+          {score !== null && (
+            <button
+              onClick={() => navigate("/qa")}
+              className="mt-6 bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700"
+            >
+              Ask Questions About Resume →
+            </button>
+          )}
+
+        </div>
       </div>
     </section>
   );

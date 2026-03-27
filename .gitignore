@@ -8,6 +8,9 @@ __pycache__/
 *.pyo
 *.pyd
 
+# FAISS vector DB (RAG storage)
+faiss_index/
+
 # ======================
 # Frontend (React/Vite)
 # ======================
@@ -17,8 +20,8 @@ client/dist/
 # ======================
 # Uploads (temp files)
 # ======================
-uploads/*
-server/uploads/*
+uploads/
+server/uploads/
 
 # ======================
 # Env (extra safety)
