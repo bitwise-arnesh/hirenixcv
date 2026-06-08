@@ -294,6 +294,5 @@ Through this project:
 * Worked with PDF parsing and document intelligence systems
 * Gained practical experience in Generative AI workflows
 
----
 
 
