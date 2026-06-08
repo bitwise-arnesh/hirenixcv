@@ -296,4 +296,4 @@ Through this project:
 
 ---
 
-\g, consider giving it a star.
+
